@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using System.Runtime.CompilerServices;
+using WeatherMonitoringApp.Bots;
+using WeatherMonitoringApp.Interfaces;
+
+
+
+var botSystem = new BotSystem();
+var newinst = new BotsDataFile(botSystem);
+newinst.CreateAndLoadBots(); 
