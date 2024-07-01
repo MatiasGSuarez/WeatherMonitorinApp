@@ -9,8 +9,7 @@ namespace WeatherMonitoringApp.Model
     public class WeatherDataModel
     {
         public string Location { get; set; }
-        public double Temperature { get; set; }
-        public double HumidityLevel { get; set; }
-
+        public decimal Temperature { get; set; }
+        public decimal Humidity { get; set; }
     }
 }

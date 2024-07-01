@@ -10,26 +10,24 @@ namespace WeatherMonitoringApp.Bots
 {
     public class RainBot : IBot
     {
-        private int v1;
-        private string v2;
-
-        public RainBot(double humidityThreshold, double temperatureThreshold, string message)
+        public RainBot(decimal humidityThreshold, string message)
         {
             HumidityThreshold = humidityThreshold;
             Message = message;
-            
         }
 
-        public double HumidityThreshold { get; set; }
-        public double TemperatureThreshold { get; set; }
+        public decimal HumidityThreshold { get; set; }
+        public decimal TemperatureThreshold { get; set; }
         public string Message { get; set; }
 
 
- 
-        public void Update(double temperature, double humidity)
+        public void Update(decimal temperature, decimal humidity)
         {
-            Console.WriteLine("Rain bot updated.");
+            if (humidity >= HumidityThreshold)
+            {
+                Console.WriteLine("RainBot Activated.");
+                Console.WriteLine($"RainBot: {Message}");
+            }
         }
-
     }
 }

@@ -16,9 +16,9 @@ namespace WeatherMonitoringApp.Data_Parser
             try
             {
                 weatherData = JsonSerializer.Deserialize<WeatherDataModel>(text);
-                if (weatherData is null || string.IsNullOrWhiteSpace(weatherData.Location)) return false;
+                if (weatherData is null || string.IsNullOrWhiteSpace(weatherData.Location))
+                    return false;
                 return true;
-
             }
             catch
             {

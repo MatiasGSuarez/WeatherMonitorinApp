@@ -10,14 +10,24 @@ namespace WeatherMonitoringApp.Bots
 {
     public class SunBot : IBot
     {
-        public double HumidityThreshold { get; set; }
-        public double TemperatureThreshold { get; set; }
+        public SunBot(decimal temperatureThreshold, string message)
+        {
+            TemperatureThreshold = temperatureThreshold;
+            Message = message;
+        }
+
+        public decimal HumidityThreshold { get; set; }
+        public decimal TemperatureThreshold { get; set; }
         public string Message { get; set; }
 
 
-        public void Update(double temperature, double humidity)
+        public void Update(decimal temperature, decimal humidity)
         {
-            Console.WriteLine("Sun bot updated.");
+            if (temperature >= TemperatureThreshold)
+            {
+                Console.WriteLine("SunBot Activated.");
+                Console.WriteLine($"SunBot: {Message}");
+            }
         }
     }
 }

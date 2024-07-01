@@ -10,14 +10,24 @@ namespace WeatherMonitoringApp.Bots
 {
     public class SnowBot : IBot
     {
-        public double HumidityThreshold { get; set; }
-        public double TemperatureThreshold { get; set; }
+        public SnowBot(decimal temperatureThreshold, string message)
+        {
+            TemperatureThreshold = temperatureThreshold;
+            Message = message;
+        }
+
+        public decimal HumidityThreshold { get; set; }
+        public decimal TemperatureThreshold { get; set; }
         public string Message { get; set; }
 
 
-        public void Update(double temperature, double humidity)
+        public void Update(decimal temperature, decimal humidity)
         {
-            Console.WriteLine("Snow bot updated.");
+            if (temperature < HumidityThreshold)
+            {
+                Console.WriteLine("SnowBot Activated.");
+                Console.WriteLine($"SnowBot: {Message}");
+            }
         }
     }
 }

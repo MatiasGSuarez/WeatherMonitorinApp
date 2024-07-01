@@ -22,8 +22,8 @@ namespace WeatherMonitoringApp.Data_Parser
                 weatherData = new WeatherDataModel()
                 {
                     Location = xmlWeathersData!.Element("Location")!.Value,
-                    HumidityLevel = double.Parse(xmlWeathersData!.Element("Temperature")!.Value),
-                    Temperature = double.Parse(xmlWeathersData!.Element("Humidity")!.Value)
+                    Humidity = decimal.Parse(xmlWeathersData!.Element("Temperature")!.Value),
+                    Temperature = decimal.Parse(xmlWeathersData!.Element("Humidity")!.Value)
                 };
                 return true;
             }

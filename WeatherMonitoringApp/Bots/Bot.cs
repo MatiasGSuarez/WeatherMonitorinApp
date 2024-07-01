@@ -8,17 +8,17 @@ using WeatherMonitoringApp.Model;
 
 namespace WeatherMonitoringApp.Bots
 {
-    public class BotSystem
+    public class Bot: IBotListener
     {
         private readonly List<IBot> botListners = [];
 
-        public BotSystem()
+        public Bot()
         {
         }
 
         public List<IBot> GetBotListners()
         {
-            return botListners;
+            return [.. botListners];
         }
         public void Subscribe(IBot botListner)
         {
